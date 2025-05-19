@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>YouTube Video Downloader</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script defer src="/static/script.js"></script>
+  <style>
+    @keyframes gradientAnimation {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    body {
+      background: linear-gradient(-45deg, #a83480, #bd62b8, #9f6aa0f1, #3ab6ba);
+      background-size: 400% 400%;
+      animation: gradientAnimation 15s ease infinite;
+    }
+  </style>
+</head>
+<body class="text-white min-h-screen flex items-center justify-center px-4">
+  <div class="text-center w-full max-w-xl">
+    <!-- Logo -->
+    <div class="flex flex-col justify-center items-center mb-4">
+      <div class="flex items-center space-x-2">
+        <span class="text-xl font-bold animate-bounce text-black">⇩</span>
+        <span class="text-xs font-bold text-yellow">▶️📀 M-TUBE 📀▶️</span>
+        <span class="text-xl font-bold animate-bounce text-black">⇩</span>
+      </div>
+      <p class="mt-1 text-xs text-white animate-pulse">Fast & Easy YouTube Downloads!</p>
+    </div>
+
+    <!-- Title -->
+    <h1 class="text-2xl md:text-3xl font-semibold mb-6">YouTube Video Downloader</h1>
+
+    <!-- Form -->
+    <form action="/" method="post" class="flex flex-col sm:flex-row gap-2 justify-center" onsubmit="showProgressBar()">
+      <input 
+        type="text" 
+        name="url"
+        placeholder="Paste your video link here"
+        class="w-full px-4 py-2 rounded-md text-black"
+        required
+      />
+     <button 
+  type="submit"
+  class="bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 
+         hover:from-red-500 hover:to-yellow-500 
+         text-white font-semibold text-xs px-3 py-1 rounded-full 
+         shadow-lg transition duration-300 ease-in-out transform hover:scale-105"
+>
+   Download Now
+</button>
+
+      </button>
+    </form>
+
+    <!-- Progress Bar -->
+    <div id="progressContainer" class="mt-6 hidden">
+      <div class="w-full bg-gray-300 rounded-full h-4">
+        <div id="progressBar" class="bg-green-500 h-4 rounded-full transition-all" style="width: 0%"></div>
+      </div>
+      <p class="text-sm mt-2 text-white">Downloading... please wait.</p>
+    </div>
+
+    <!-- Message -->
+    {% if message %}
+    <div class="mt-4 text-sm text-green-300 font-medium">
+      {{ message|safe }}
+    </div>
+    {% endif %}
+
+    <!-- Creator Badge -->
+    <div class="mt-6 text-sm text-gray-200 flex justify-center items-center text-yellow">
+      <span>🧠 Created By 𝓜oumita 𝓜ondal 💻</span>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="absolute bottom-2 w-full text-center text-sm text-white">
+    &copy; Created by Moumita Mondal © All Rights Reserved 2025-26
+  </footer>
+</body>
+</html>
